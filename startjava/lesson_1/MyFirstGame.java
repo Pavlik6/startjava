@@ -13,14 +13,12 @@ class MyFirstGame {
         do {
             if(hiddenNumber < playerAnswer) {
                 System.out.println("Введеное вами число " + playerAnswer + " больше того, что загадал компьютер");
+                playerAnswer--;
             } else if(hiddenNumber > playerAnswer) {
                 System.out.println("Введеное вами число " + playerAnswer + " меньше того, что загадал компьютер");
+                playerAnswer++;
             } 
-            System.out.println("Введите число: ");
-            playerAnswer = 50;
         } while(hiddenNumber != playerAnswer);
-
-        System.out.println("Вы угадали!");
-
+        System.out.println("Вы угадали! Это число " + playerAnswer);
     }
 }

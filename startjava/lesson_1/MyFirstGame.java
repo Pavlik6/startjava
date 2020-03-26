@@ -6,18 +6,21 @@
 // игра продолжается до тех пор, пока число не будет угадано
 class MyFirstGame {
     public static void main(String[] args) {
-        int compNum = 50;
-        int myNum;
+        int hiddenNumber = 50;
+        System.out.println("Введите число: ");
+        int playerAnswer = 20;
 
         do {
-            myNum = 50;
-            if(myNum > compNum) {
-                System.out.println("Введеное вами число больше того, что загадал компьютер");
-            } else if(myNum < compNum) {
-                System.out.println("Введеное вами число меньше того, что загадал компьютер");
-            } else if(myNum == compNum) {
-                System.out.println("Вы угадали!");
-            }
-        } while(myNum != compNum);
+            if(hiddenNumber < playerAnswer) {
+                System.out.println("Введеное вами число " + playerAnswer + " больше того, что загадал компьютер");
+            } else if(hiddenNumber > playerAnswer) {
+                System.out.println("Введеное вами число " + playerAnswer + " меньше того, что загадал компьютер");
+            } 
+            System.out.println("Введите число: ");
+            playerAnswer = 50;
+        } while(hiddenNumber != playerAnswer);
+
+        System.out.println("Вы угадали!");
+
     }
 }

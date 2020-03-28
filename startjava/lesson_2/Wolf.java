@@ -1,27 +1,77 @@
+// Модифицируйте класс Wolf
+// у всех полей класса напишите модификатор доступа private
+// у всех методов класса напишите модификатор доступа public
+// для доступа к полям создайте геттеры и сеттеры
+// в сеттере поля age реализуйте проверку: если возраст волка > 8 лет, 
+// то выведите сообщение "Некорректный возраст"
 public class Wolf {
-    String gender;
-    String nickname;
-    int weight;
-    int age;
-    String color;
+    private String gender;
+    private String nickname;
+    private int weight;
+    private int age;
+    private String color;
 
-    void walk() {
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        if(age > 8) {
+            System.out.println("Некорректный возраст");
+        } else {
+            this.age = age;
+        }
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void walk() {
         System.out.println(nickname + " is walking");
     }
 
-    void sit() {
+    public void sit() {
         System.out.println(nickname + " is sitting");
     }
 
-    void run() {
+    public void run() {
         System.out.println(nickname + " is running");
     }
 
-    void howl() {
+    public void howl() {
         System.out.println(nickname + " is howling");
     }
 
-    void hunt() {
+    public void hunt() {
         System.out.println(nickname + " is hunting");
     }
 }

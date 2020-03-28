@@ -6,20 +6,24 @@
 // присвойте в нем полям экземпляра класса Wolf какие-то значения
 // считайте эти значения из полей и отобразите в консоли
 // вызовите методы объекта
+// ================================================
+// Модифицируйте класс WolfTest
+// с помощью сеттеров присвойте полям экземпляра класса Wolf какие-то значения
+// считайте эти значения из полей с помощью геттеров и отобразите в консоли
 public class WolfTest {
     public static void main(String[] args) {
         Wolf wolfOne = new Wolf();
-        wolfOne.gender = "Man";
-        wolfOne.nickname = "Alex";
-        wolfOne.weight = 120;
-        wolfOne.age = 20;
-        wolfOne.color = "gray";
+        wolfOne.setGender("Man");
+        wolfOne.setNickname("Alex");
+        wolfOne.setWeight(120);
+        wolfOne.setAge(20);
+        wolfOne.setColor("Gray");
 
-        System.out.println("Gender - " + wolfOne.gender);
-        System.out.println("Nickname - " + wolfOne.nickname);
-        System.out.println("Weight - " + wolfOne.weight);
-        System.out.println("Age - " + wolfOne.age);
-        System.out.println("Color - " + wolfOne.color);
+        System.out.println("Gender - " + wolfOne.getGender());
+        System.out.println("Nickname - " + wolfOne.getNickname());
+        System.out.println("Weight - " + wolfOne.getWeight());
+        System.out.println("Age - " + wolfOne.getAge());
+        System.out.println("Color - " + wolfOne.getColor());
 
         wolfOne.walk();
         wolfOne.sit();

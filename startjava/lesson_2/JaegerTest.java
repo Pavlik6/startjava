@@ -17,14 +17,14 @@ public class JaegerTest {
         System.out.println();
 
         Jaeger jaegerTwo = new Jaeger();
-        jaegerOne.setModelName("Saber Athena");
-        jaegerOne.setMark("Mark-7");
-        jaegerOne.setHeight(76.91f);
-        jaegerOne.setWeight(1.628f);
-        jaegerOne.setSpeed(220);
+        jaegerTwo.setModelName("Saber Athena");
+        jaegerTwo.setMark("Mark-7");
+        jaegerTwo.setHeight(76.91f);
+        jaegerTwo.setWeight(1.628f);
+        jaegerTwo.setSpeed(220);
 
-        jaegerOne.move();
-        System.out.println(jaegerOne.call());
-        jaegerOne.robotSize();
+        jaegerTwo.move();
+        System.out.println(jaegerTwo.call());
+        jaegerTwo.robotSize();
     }
 }

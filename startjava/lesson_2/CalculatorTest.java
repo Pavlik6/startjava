@@ -13,8 +13,6 @@ public class CalculatorTest {
         Calculator calc = new Calculator();
 
         String answer;
-        String yes = "yes";
-        String no = "no";
 
         do {
             System.out.print("Введите первое число: ");
@@ -27,15 +25,17 @@ public class CalculatorTest {
             calc.setNum2(scan.nextInt());
 
             System.out.println("Итог: ");
-            calc.resultOfNumbers();
+            calc.calculate();
 
             System.out.println("Хотите продолжить? [yes/no]: ");
             answer = scan.next();
 
-            while (answer != yes || answer != no) {
+            if(answer.equals("no")) break;
+
+            while (!answer.equals("yes")) {
                 System.out.println("Хотите продолжить? [yes/no]: ");
                 answer = scan.next();
             }
-        } while (answer == yes);
+        } while (answer.equals("yes"));
     }
 }

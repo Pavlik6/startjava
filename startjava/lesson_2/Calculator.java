@@ -29,7 +29,7 @@ class Calculator {
         this.sign = sign;
     }
 
-    public void resultOfNumbers() {
+    public void calculate() {
         switch(sign) {
             case '+':
                 System.out.println(num1 + " + " + num2 + " = " + (num1 + num2));

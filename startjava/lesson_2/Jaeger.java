@@ -5,44 +5,32 @@ public class Jaeger {
     private float weight;
     private int speed;
 
-    private String getModelName() {
-        return modelName;
+    public Jaeger(String modelName, String mark, float height, float weight, int speed) {
+        this.modelName = modelName;
+        this.mark = mark;
+        this.height = height;
+        this.weight = weight;
+        this.speed = speed;
     }
 
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
+    private String getModelName() {
+        return modelName;
     }
 
     private String getMark() {
         return mark;
     }
 
-    public void setMark(String mark) {
-        this.mark = mark;
-    }
-
     private float getHeight() {
         return height;
-    }
-
-    public void setHeight(float height) {
-        this.height = height;
     }
 
     private float getWeight() {
         return weight;
     }
 
-    public void setWeight(float weight) {
-        this.weight = weight;
-    }
-
     private int getSpeed() {
         return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
     }
 
     // ===============    Methods of robot    ====================

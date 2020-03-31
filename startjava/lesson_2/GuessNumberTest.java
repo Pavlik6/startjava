@@ -16,8 +16,8 @@ public class GuessNumberTest {
         System.out.print("Введите имя второго игрока: ");
         Player player2 = new Player(scan.nextLine());
 
-        GuessNumber game = new GuessNumber();
+        GuessNumber game = new GuessNumber(player1, player2);
         System.out.println("Загаданное число: " + game.hiddenNumber);
-        game.play(player1, player2);
+        game.play();
     }
 }

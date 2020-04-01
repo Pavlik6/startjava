@@ -9,7 +9,6 @@ import java.util.*;
 public class GuessNumberTest {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        String answer;
 
         System.out.print("Введите имя первого игрока: ");
         Player player1 = new Player(scan.nextLine());
@@ -19,6 +18,7 @@ public class GuessNumberTest {
 
         GuessNumber game = new GuessNumber(player1, player2);
 
+        String answer;
 
         do {
             game.play();

@@ -8,8 +8,8 @@ import java.util.*;
 
 public class GuessNumberTest {
     public static void main(String[] args) {
-        String answer;
         Scanner scan = new Scanner(System.in);
+        String answer;
 
         System.out.print("Введите имя первого игрока: ");
         Player player1 = new Player(scan.nextLine());
@@ -19,18 +19,18 @@ public class GuessNumberTest {
 
         GuessNumber game = new GuessNumber(player1, player2);
 
-        do {
-            System.out.println("Загаданное число: " + game.hiddenNumber);
-            game.play();
 
-            System.out.println("Хотите продолжить? [yes/no]: ");
-            answer = scan.next();
+        do {
+            game.play();
+            game.question();
+            
+            answer = game.answerCall();
 
             if(answer.equals("no")) break;
 
             while (!answer.equals("yes")) {
-                System.out.println("Хотите продолжить? [yes/no]: ");
-                answer = scan.next();
+                game.question();
+                answer = game.answerCall();
             }
         } while(answer.equals("yes"));
     }

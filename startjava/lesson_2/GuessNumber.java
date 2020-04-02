@@ -17,6 +17,7 @@ public class GuessNumber {
 
     public void play() {
         do {
+            System.out.println(hiddenNumber);
             System.out.print(player1.getName() + " введите число: ");
             player1.setNumber(scan.nextInt());
             if(player1.getNumber() == hiddenNumber) {
@@ -32,14 +33,4 @@ public class GuessNumber {
             }
         } while (true);
     }
-
-    public void question() {
-        System.out.println("Хотите продолжить? [yes/no]: ");    
-    }
-
-    // Запрашивает ввод номера
-    public String answerCall() {
-        return scan.next();
-    }
-
 }

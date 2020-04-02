@@ -22,15 +22,18 @@ public class GuessNumberTest {
 
         do {
             game.play();
-            game.question();
-            
-            answer = game.answerCall();
 
-            if(answer.equals("no")) break;
+            while (true) {
+                System.out.println("Хотите продолжить? [yes/no]: ");    
+                answer = scan.next();
 
-            while (!answer.equals("yes")) {
-                game.question();
-                answer = game.answerCall();
+                if(answer.equals("no")) {
+                    break;
+                } else if(!answer.equals("yes")) {
+                    continue;
+                } else if(answer.equals("yes")) {
+                    break;
+                }
             }
         } while(answer.equals("yes"));
     }

@@ -6,7 +6,7 @@ public class GuessNumber {
     private Player player2;
 
     Random random = new Random();
-    private int hiddenNumber = random.nextInt(101);
+    private int hiddenNumber;
 
     Scanner scan = new Scanner(System.in);
 
@@ -16,8 +16,10 @@ public class GuessNumber {
     }
 
     public void play() {
+        hiddenNumber = random.nextInt(101);
+        System.out.println(hiddenNumber);
+
         do {
-            System.out.println(hiddenNumber);
             System.out.print(player1.getName() + " введите число: ");
             player1.setNumber(scan.nextInt());
             if(player1.getNumber() == hiddenNumber) {

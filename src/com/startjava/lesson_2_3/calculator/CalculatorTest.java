@@ -5,6 +5,8 @@
 // Введите первое число: 2
 // Введите знак математической операции: ^
 // Введите второе число: 10
+package com.startjava.lesson_2_3.calculator;
+
 import java.util.*;
 
 public class CalculatorTest {

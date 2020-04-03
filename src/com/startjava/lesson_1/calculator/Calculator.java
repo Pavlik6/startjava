@@ -1,5 +1,7 @@
 // Реализуйте Калькулятор, который должен уметь выполнять математические операции 
 // (+, -, *, /, ^, %) над целыми положительными числами
+package com.startjava.lesson_1.calculator;
+
 class Calculator {
     public static void main(String[] args) {
         int num1 = 5;

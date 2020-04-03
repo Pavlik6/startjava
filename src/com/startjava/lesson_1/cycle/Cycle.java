@@ -1,3 +1,5 @@
+package com.startjava.lesson_1.cycle;
+
 class Cycle {
     public static void main(String[] args) {
         //Выведите на консоль с помощью цикла for все числа от [0, 20]

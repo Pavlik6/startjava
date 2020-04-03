@@ -1,3 +1,5 @@
+package com.startjava.lesson_1.variable;
+
 class Variable {
     public static void main(String[] args) {
         byte memoryRAM = 8;

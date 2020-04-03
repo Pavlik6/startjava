@@ -1,4 +1,6 @@
 // GuessNumber — отвечает за сам процесс игры и логику ее работы
+package com.startjava.lesson_2_3.game;
+
 import java.util.*;
 
 public class GuessNumber {

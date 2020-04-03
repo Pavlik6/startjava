@@ -4,6 +4,8 @@
 // System.out.println("Введенное вами число больше (меньше) того, что загадал компьютер")
 // если число угадано — System.out.println("Вы угадали!")
 // игра продолжается до тех пор, пока число не будет угадано
+package com.startjava.lesson_1.game;
+
 class MyFirstGame {
     public static void main(String[] args) {
         int hiddenNumber = 50;

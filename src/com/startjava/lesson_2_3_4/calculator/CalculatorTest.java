@@ -28,17 +28,22 @@ public class CalculatorTest {
             calc.setSign(mathExpression[1].charAt(0));
             calc.setNum2(Integer.parseInt(mathExpression[2]));
 
-            System.out.println("Итог: ");
-            calc.calculate();
+            System.out.println("Вывод: " + calc.getNum1() + " "
+                                         + calc.getSign() + " "
+                                         + calc.getNum2() + " = "
+                                         + calc.calculate());
 
-            System.out.println("Хотите продолжить? [yes/no]: ");
-            answer = scan.next();
-
-            if(answer.equals("no")) break;
-
-            while (!answer.equals("yes")) {
+            while (true) {
                 System.out.println("Хотите продолжить? [yes/no]: ");
                 answer = scan.next();
+
+                if(answer.equals("no")) {
+                    break;
+                } else if(!answer.equals("yes")) {
+                    continue;
+                } else if(answer.equals("yes")) {
+                    break;
+                }
             }
         } while (answer.equals("yes"));
     }

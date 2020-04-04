@@ -6,6 +6,19 @@ class Calculator {
     private int num1;
     private int num2;
     private char sign;
+    private int result;
+
+    public int getNum1() {
+        return num1;
+    }
+
+    public int getNum2() {
+        return num2;
+    }
+
+    public char getSign() {
+        return sign;
+    }
 
     public void setNum1(int num1) {
         this.num1 = num1;
@@ -19,27 +32,29 @@ class Calculator {
         this.sign = sign;
     }
 
-    public void calculate() {
+    public int calculate() {
+
         switch(this.sign) {
             case '+':
-                System.out.println(this.num1 + " + " + this.num2 + " = " + Math.addExact(this.num1, this.num2));
+                result = Math.addExact(num1, num2);
                 break;
             case '-':
-                System.out.println(this.num1 + " - " + this.num2 + " = " + Math.subtractExact(this.num1, this.num2));
+                result = Math.subtractExact(num1, num2);
                 break;
             case '*':
-                System.out.println(this.num1 + " * " + this.num2 + " = " + Math.multiplyExact(this.num1, this.num2));
+                result =  Math.multiplyExact(num1, num2);
                 break;
             case '/':
-                System.out.println(this.num1 + " / " + this.num2 + " = " + (this.num1 / this.num2));
+                result = num1 / num2;
                 break;
             case '^':
-                int result = (int)Math.pow(this.num1, this.num2);
-                System.out.println(this.num1 + " ^ " + this.num2 + " = " + result);
+                result = (int) Math.pow(num1, num2);
                 break;
             case '%':
-                System.out.println(this.num1 + " % " + this.num2 + " = " + (this.num1 % this.num2));
+                result = num1 % num2;
                 break;
         }
+
+        return result;
     }
 }   

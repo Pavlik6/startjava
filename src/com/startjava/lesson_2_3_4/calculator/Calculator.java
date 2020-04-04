@@ -22,13 +22,13 @@ class Calculator {
     public void calculate() {
         switch(this.sign) {
             case '+':
-                System.out.println(this.num1 + " + " + this.num2 + " = " + (this.num1 + this.num2));
+                System.out.println(this.num1 + " + " + this.num2 + " = " + Math.addExact(this.num1, this.num2));
                 break;
             case '-':
-                System.out.println(this.num1 + " - " + this.num2 + " = " + (this.num1 - this.num2));
+                System.out.println(this.num1 + " - " + this.num2 + " = " + Math.subtractExact(this.num1, this.num2));
                 break;
             case '*':
-                System.out.println(this.num1 + " * " + this.num2 + " = " + (this.num1 * this.num2));
+                System.out.println(this.num1 + " * " + this.num2 + " = " + Math.multiplyExact(this.num1, this.num2));
                 break;
             case '/':
                 System.out.println(this.num1 + " / " + this.num2 + " = " + (this.num1 / this.num2));

@@ -14,9 +14,8 @@ public class CalculatorTest {
         Scanner scan = new Scanner(System.in);
         Calculator calc = new Calculator();
 
-        String answer = "yes";
+        String answer;
         String[] mathExpression = new String[3];
-
 
         do {
             System.out.print("Введите математическое выражение: ");

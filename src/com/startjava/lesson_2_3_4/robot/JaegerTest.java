@@ -1,7 +1,7 @@
 // Модифицируйте класс Jaeger, сделав его универсальным (без инициализации полей в самом классе,
 // как мы это делали в уроке).
 // Это позволит на его основе создавать любого робота:
-package com.startjava.lesson_2_3.robot;
+package com.startjava.lesson_2_3_4.robot;
 
 public class JaegerTest {
     public static void main(String[] args) {

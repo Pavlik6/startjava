@@ -5,7 +5,7 @@
 // Введите первое число: 2
 // Введите знак математической операции: ^
 // Введите второе число: 10
-package com.startjava.lesson_2_3.calculator;
+package com.startjava.lesson_2_3_4.calculator;
 
 import java.util.*;
 
@@ -14,17 +14,20 @@ public class CalculatorTest {
         Scanner scan = new Scanner(System.in);
         Calculator calc = new Calculator();
 
-        String answer;
+        String answer = "yes";
+        String[] mathExpression = new String[3];
+
 
         do {
-            System.out.print("Введите первое число: ");
-            calc.setNum1(scan.nextInt());
+            System.out.print("Введите математическое выражение: ");
 
-            System.out.print("Введите знак математической операции: ");
-            calc.setSign(scan.next().charAt(0));
+            for (int i = 0; i < mathExpression.length; i++) {
+                mathExpression[i] = scan.next();
+            }
 
-            System.out.print("Введите второе число: ");
-            calc.setNum2(scan.nextInt());
+            calc.setNum1(Integer.parseInt(mathExpression[0]));
+            calc.setSign(mathExpression[1].charAt(0));
+            calc.setNum2(Integer.parseInt(mathExpression[2]));
 
             System.out.println("Итог: ");
             calc.calculate();

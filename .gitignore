@@ -1,2 +1,9 @@
 #files <out>
 out/
+
+/.idea/misc.xml
+/.idea/modules.xml
+/startjava.iml
+/.idea/vcs.xml
+/.idea/workspace.xml
+/.idea/

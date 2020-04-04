@@ -8,18 +8,6 @@ class Calculator {
     private char sign;
     private int result;
 
-    public int getNum1() {
-        return num1;
-    }
-
-    public int getNum2() {
-        return num2;
-    }
-
-    public char getSign() {
-        return sign;
-    }
-
     public void setNum1(int num1) {
         this.num1 = num1;
     }
@@ -34,7 +22,7 @@ class Calculator {
 
     public int calculate() {
 
-        switch(this.sign) {
+        switch(sign) {
             case '+':
                 result = Math.addExact(num1, num2);
                 break;

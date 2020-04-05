@@ -6,7 +6,6 @@ class Calculator {
     private int num1;
     private int num2;
     private char sign;
-    private int result;
 
     public void setNum1(int num1) {
         this.num1 = num1;
@@ -21,28 +20,21 @@ class Calculator {
     }
 
     public int calculate() {
-
         switch(sign) {
             case '+':
-                result = Math.addExact(num1, num2);
-                break;
+                return Math.addExact(num1, num2);
             case '-':
-                result = Math.subtractExact(num1, num2);
-                break;
+                return Math.subtractExact(num1, num2);
             case '*':
-                result =  Math.multiplyExact(num1, num2);
-                break;
+                return Math.multiplyExact(num1, num2);
             case '/':
-                result = num1 / num2;
-                break;
+                return num1 / num2;
             case '^':
-                result = (int) Math.pow(num1, num2);
-                break;
+                return (int) Math.pow(num1, num2);
             case '%':
-                result = num1 % num2;
-                break;
+                return num1 % num2;
+            default:
+                return 0;
         }
-
-        return result;
     }
 }   

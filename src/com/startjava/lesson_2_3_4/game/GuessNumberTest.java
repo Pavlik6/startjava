@@ -25,18 +25,10 @@ public class GuessNumberTest {
         do {
             game.play();
 
-            while (true) {
-                System.out.println("Хотите продолжить? [yes/no]: ");    
+            do {
+                System.out.println("Хотите продолжить? [yes/no]: ");
                 answer = scan.next();
-
-                if(answer.equals("no")) {
-                    break;
-                } else if(!answer.equals("yes")) {
-                    continue;
-                } else if(answer.equals("yes")) {
-                    break;
-                }
-            }
-        } while(answer.equals("yes"));
+            } while (!answer.equals("yes") && !answer.equals("no"));
+        } while (answer.equals("yes"));
     }
 }

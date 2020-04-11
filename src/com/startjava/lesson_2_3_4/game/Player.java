@@ -24,11 +24,9 @@ public class Player {
         this.number = number;
     }
 
-    //Добавление чисел в массив
-    public void addNumberToArrayNumbers(int count) {
-        for (int i = count - 1; i < count; i++) {
-            enteredNumbers[i] = getNumber();
-        }
+    //Добавление числа в массив
+    public void addNumberToArrayNumbers(int count, int number) {
+        enteredNumbers[count] = number;
     }
 
     //Вывод результата
@@ -39,7 +37,7 @@ public class Player {
     }
 
     //Очистка массива "набора игроками чисел"
-    public void clear(int nums) {
-        Arrays.fill(enteredNumbers, 0, nums, 0);
+    public void clear(int num) {
+        Arrays.fill(enteredNumbers, 0, num, 0);
     }
 }

@@ -22,14 +22,14 @@ public class GuessNumber {
     public void enterNumber(Player player) {
         System.out.print(player.getName() + " введите число: ");
         player.setNumber(scan.nextInt());
-        player.addNumberToArrayNumbers(count);
+        player.addNumberToArrayNumbers(count, player.getNumber());
     }
 
     //С какой попытки отгадал число игрок
     public void showAttempts(Player player) {
         System.out.println("Игрок " + player.getName()
                 + " угадал число " + hiddenNumber
-                + " с " + count + " попытки!");
+                + " с " + (count + 1) + " попытки!");
     }
 
     //Закончились попытки
@@ -40,16 +40,16 @@ public class GuessNumber {
     public void play() {
         hiddenNumber = random.nextInt(101);
         System.out.println(hiddenNumber);
-        count = 1;
+        count = 0;
 
         do {
             enterNumber(player1);
 
-            if(player1.getNumber() == hiddenNumber) {
+            if (player1.getNumber() == hiddenNumber) {
                 System.out.println(player1.getName() + " выйграл!!!");
                 showAttempts(player1);
-                player1.getEneteredNumbers(count);
-                player2.getEneteredNumbers(count - 1);
+                player1.getEneteredNumbers(count + 1);
+                player2.getEneteredNumbers(count);
                 player1.clear(count);
                 player2.clear(count);
                 break;
@@ -57,20 +57,20 @@ public class GuessNumber {
 
             enterNumber(player2);
 
-            if(player2.getNumber() == hiddenNumber) {
+            if (player2.getNumber() == hiddenNumber) {
                 System.out.println(player2.getName() + " выйграл!!!");
                 showAttempts(player2);
-                player1.getEneteredNumbers(count);
-                player2.getEneteredNumbers(count);
+                player1.getEneteredNumbers(count + 1);
+                player2.getEneteredNumbers(count + 1);
                 player1.clear(count);
                 player2.clear(count);
                 break;
             }
 
             count++;
-        } while (true && count <= 10);
+        } while (true && count <= 9);
 
-        if(count > 10) {
+        if (count > 9) {
             endAttempt(player1);
             endAttempt(player2);
         }

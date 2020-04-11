@@ -7,6 +7,7 @@ public class GuessNumber {
     private Player player1;
     private Player player2;
     private int count;
+    private int number;
 
     Random random = new Random();
     private int hiddenNumber;
@@ -18,25 +19,6 @@ public class GuessNumber {
         this.player2 = player2;
     }
 
-    //Ввод числа и добавление его в массив
-    public void enterNumber(Player player) {
-        System.out.print(player.getName() + " введите число: ");
-        player.setNumber(scan.nextInt());
-        player.addNumberToArrayNumbers(count, player.getNumber());
-    }
-
-    //С какой попытки отгадал число игрок
-    public void showAttempts(Player player) {
-        System.out.println("Игрок " + player.getName()
-                + " угадал число " + hiddenNumber
-                + " с " + (count + 1) + " попытки!");
-    }
-
-    //Закончились попытки
-    public void endAttempt(Player player) {
-        System.out.println("У " + player.getName() + "a" + " закончились попытки");
-    }
-
     public void play() {
         hiddenNumber = random.nextInt(101);
         System.out.println(hiddenNumber);
@@ -45,34 +27,58 @@ public class GuessNumber {
         do {
             enterNumber(player1);
 
-            if (player1.getNumber() == hiddenNumber) {
-                System.out.println(player1.getName() + " выйграл!!!");
-                showAttempts(player1);
-                player1.getEneteredNumbers(count + 1);
-                player2.getEneteredNumbers(count);
-                player1.clear(count);
-                player2.clear(count);
+            if (number == hiddenNumber) {
+                playerWin(player1);
+                enteredResultAndClear(player1, player2);
                 break;
             }
 
             enterNumber(player2);
 
-            if (player2.getNumber() == hiddenNumber) {
-                System.out.println(player2.getName() + " выйграл!!!");
-                showAttempts(player2);
-                player1.getEneteredNumbers(count + 1);
-                player2.getEneteredNumbers(count + 1);
-                player1.clear(count);
-                player2.clear(count);
+            if (number == hiddenNumber) {
+                playerWin(player2);
+                enteredResultAndClear(player1, player2);
                 break;
             }
 
             count++;
-        } while (true && count <= 9);
+        } while (count <= 9);
 
         if (count > 9) {
             endAttempt(player1);
             endAttempt(player2);
         }
+    }
+
+    //Ввод числа и добавление его в массив
+    private void enterNumber(Player player) {
+        System.out.print(player.getName() + " введите число: ");
+        number = scan.nextInt();
+        player.addNumberToArrayNumbers(count, number);
+    }
+
+    private void playerWin(Player player) {
+        System.out.println(player.getName() + " выйграл!!!");
+        showAttempts(player);
+    }
+
+    //С какой попытки отгадал число игрок
+    private void showAttempts(Player player) {
+        System.out.println("Игрок " + player.getName()
+                + " угадал число " + hiddenNumber
+                + " с " + player.resultAttempt(count) + " попытки!");
+    }
+
+    //Вывод результата и очистка всех введенных чисел
+    private void enteredResultAndClear(Player playerOne, Player playerTwo) {
+        playerOne.getEneteredNumbers();
+        playerTwo.getEneteredNumbers();
+        playerOne.clear(count);
+        playerTwo.clear(count);
+    }
+
+    //Закончились попытки
+    private void endAttempt(Player player) {
+        System.out.println("У " + player.getName() + "a" + " закончились попытки");
     }
 }

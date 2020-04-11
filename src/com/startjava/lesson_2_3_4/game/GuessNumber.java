@@ -66,7 +66,7 @@ public class GuessNumber {
     private void showAttempts(Player player) {
         System.out.println("Игрок " + player.getName()
                 + " угадал число " + hiddenNumber
-                + " с " + player.resultAttempt(count) + " попытки!");
+                + " с " + player.resultAttempt() + " попытки!");
     }
 
     //Вывод результата и очистка всех введенных чисел

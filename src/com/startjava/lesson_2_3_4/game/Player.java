@@ -34,7 +34,7 @@ public class Player {
     }
 
     //Возвращает кол-во попыток
-    public int resultAttempt(int count) {
+    public int resultAttempt() {
         return attempt + 1;
     }
 }

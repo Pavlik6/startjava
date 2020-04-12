@@ -7,7 +7,6 @@ public class Player {
     private String name;
     private int attempt;
     private int[] enteredNumbers = new int[10];
-    private int[] numbers;
 
 
     public Player(String name) {
@@ -25,13 +24,14 @@ public class Player {
     }
 
     //Возвращает массив
-    public void getEneteredNumbers() {
-         numbers = Arrays.copyOf(enteredNumbers, attempt);
+    private int[] getEneteredNumbers() {
+         int[] numbers = Arrays.copyOf(enteredNumbers, attempt);
+         return numbers;
     }
 
     //Вывод чисел на экран
     public void outputNumbers() {
-        System.out.println(Arrays.toString(numbers));
+        System.out.println(Arrays.toString(getEneteredNumbers()));
     }
 
     //Очистка массива "набора игроками чисел"

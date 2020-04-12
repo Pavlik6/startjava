@@ -26,7 +26,6 @@ public class GuessNumber {
 
             if (player1.returnNumber(i) == hiddenNumber) {
                 showWinner(player1);
-                enteredResult(player1, player2);
                 player1.outputNumbers();
                 player2.outputNumbers();
                 clearNumbers(player1, player2);
@@ -37,7 +36,6 @@ public class GuessNumber {
 
             if (player2.returnNumber(i) == hiddenNumber) {
                 showWinner(player2);
-                enteredResult(player1, player2);
                 player1.outputNumbers();
                 player2.outputNumbers();
                 clearNumbers(player1, player2);
@@ -63,12 +61,6 @@ public class GuessNumber {
         System.out.println("Игрок " + player.getName()
                 + " угадал число " + hiddenNumber
                 + " с " + player.getAttempt() + " попытки!");
-    }
-
-    //
-    private void enteredResult(Player playerOne, Player playerTwo) {
-        playerOne.getEneteredNumbers();
-        playerTwo.getEneteredNumbers();
     }
 
     //Очистка введенных чисел

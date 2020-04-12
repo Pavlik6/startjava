@@ -6,8 +6,6 @@ import java.util.*;
 public class GuessNumber {
     private Player player1;
     private Player player2;
-    private int count;
-    private int number;
 
     Random random = new Random();
     private int hiddenNumber;
@@ -22,42 +20,40 @@ public class GuessNumber {
     public void play() {
         hiddenNumber = random.nextInt(101);
         System.out.println(hiddenNumber);
-        count = 0;
 
-        do {
+        for (int i = 0; i <= 9; i++) {
             enterNumber(player1);
 
-            if (number == hiddenNumber) {
-                playerWin(player1);
-                enteredResultAndClear(player1, player2);
+            if (player1.returnNumber(i) == hiddenNumber) {
+                showWinner(player1);
+                enteredResult(player1, player2);
+                player1.outputNumbers();
+                player2.outputNumbers();
+                clearNumbers(player1, player2);
                 break;
             }
 
             enterNumber(player2);
 
-            if (number == hiddenNumber) {
-                playerWin(player2);
-                enteredResultAndClear(player1, player2);
+            if (player2.returnNumber(i) == hiddenNumber) {
+                showWinner(player2);
+                enteredResult(player1, player2);
+                player1.outputNumbers();
+                player2.outputNumbers();
+                clearNumbers(player1, player2);
                 break;
             }
-
-            count++;
-        } while (count <= 9);
-
-        if (count > 9) {
-            endAttempt(player1);
-            endAttempt(player2);
         }
     }
 
-    //Ввод числа и добавление его в массив
+    //Ввод числа
     private void enterNumber(Player player) {
         System.out.print(player.getName() + " введите число: ");
-        number = scan.nextInt();
-        player.addNumberToArrayNumbers(count, number);
+        player.setNumber(scan.nextInt());
     }
 
-    private void playerWin(Player player) {
+    //Показать выйгрышного игрока
+    private void showWinner(Player player) {
         System.out.println(player.getName() + " выйграл!!!");
         showAttempts(player);
     }
@@ -66,15 +62,19 @@ public class GuessNumber {
     private void showAttempts(Player player) {
         System.out.println("Игрок " + player.getName()
                 + " угадал число " + hiddenNumber
-                + " с " + player.resultAttempt() + " попытки!");
+                + " с " + player.getAttempt() + " попытки!");
     }
 
-    //Вывод результата и очистка всех введенных чисел
-    private void enteredResultAndClear(Player playerOne, Player playerTwo) {
+    //
+    private void enteredResult(Player playerOne, Player playerTwo) {
         playerOne.getEneteredNumbers();
         playerTwo.getEneteredNumbers();
-        playerOne.clear(count);
-        playerTwo.clear(count);
+    }
+
+    //Очистка введенных чисел
+    private void clearNumbers(Player playerOne, Player playerTwo) {
+        playerOne.clear();
+        playerTwo.clear();
     }
 
     //Закончились попытки

@@ -7,6 +7,8 @@ public class Player {
     private String name;
     private int attempt;
     private int[] enteredNumbers = new int[10];
+    private int[] numbers;
+
 
     public Player(String name) {
         this.name = name;
@@ -17,24 +19,34 @@ public class Player {
     }
 
     //Добавление числа в массив
-    public void addNumberToArrayNumbers(int count, int number) {
-        enteredNumbers[count] = number;
-        attempt = count;
+    public void setNumber(int number) {
+        enteredNumbers[attempt] = number;
+        attempt++;
     }
 
-    //Вывод результата
+    //Возвращает массив
     public void getEneteredNumbers() {
-        int[] numbers = Arrays.copyOf(enteredNumbers, attempt + 1);
+         numbers = Arrays.copyOf(enteredNumbers, attempt);
+    }
+
+    //Вывод чисел на экран
+    public void outputNumbers() {
         System.out.println(Arrays.toString(numbers));
     }
 
     //Очистка массива "набора игроками чисел"
-    public void clear(int count) {
-        Arrays.fill(enteredNumbers, 0, count, 0);
+    public void clear() {
+        Arrays.fill(enteredNumbers, 0, attempt, 0);
+        attempt = 0;
     }
 
     //Возвращает кол-во попыток
-    public int resultAttempt() {
-        return attempt + 1;
+    public int getAttempt() {
+        return attempt;
+    }
+
+    //Возврат введенного числа
+    public int returnNumber(int i) {
+        return enteredNumbers[i];
     }
 }

@@ -25,8 +25,7 @@ public class Player {
 
     //Возвращает массив
     private int[] getEneteredNumbers() {
-         int[] numbers = Arrays.copyOf(enteredNumbers, attempt);
-         return numbers;
+        return Arrays.copyOf(enteredNumbers, attempt);
     }
 
     //Вывод чисел на экран

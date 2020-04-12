@@ -24,23 +24,21 @@ public class GuessNumber {
         for (int i = 0; i <= 9; i++) {
             enterNumber(player1);
 
-            if (player1.returnNumber(i) == hiddenNumber) {
+            if (player1.getNumber(i) == hiddenNumber) {
                 showWinner(player1);
-                player1.outputNumbers();
-                player2.outputNumbers();
-                clearNumbers(player1, player2);
+                showNumbers();
                 break;
             }
+            endAttempt(player1);
 
             enterNumber(player2);
 
-            if (player2.returnNumber(i) == hiddenNumber) {
+            if (player2.getNumber(i) == hiddenNumber) {
                 showWinner(player2);
-                player1.outputNumbers();
-                player2.outputNumbers();
-                clearNumbers(player1, player2);
+                showNumbers();
                 break;
             }
+            endAttempt(player2);
         }
     }
 
@@ -53,24 +51,33 @@ public class GuessNumber {
     //Показать выйгрышного игрока
     private void showWinner(Player player) {
         System.out.println(player.getName() + " выйграл!!!");
-        showAttempts(player);
-    }
-
-    //С какой попытки отгадал число игрок
-    private void showAttempts(Player player) {
         System.out.println("Игрок " + player.getName()
                 + " угадал число " + hiddenNumber
                 + " с " + player.getAttempt() + " попытки!");
     }
 
+    //Вывод на экран набор введенных чисел каждым игроком
+    private void showNumbers() {
+        outputNumbers(player1);
+        outputNumbers(player2);
+        clearNumbers();
+    }
+
+    //Вывод чисел на экран
+    private void outputNumbers(Player player) {
+        System.out.println(Arrays.toString(player.getEneteredNumbers()));
+    }
+
     //Очистка введенных чисел
-    private void clearNumbers(Player playerOne, Player playerTwo) {
-        playerOne.clear();
-        playerTwo.clear();
+    private void clearNumbers() {
+        player1.clear();
+        player2.clear();
     }
 
     //Закончились попытки
     private void endAttempt(Player player) {
-        System.out.println("У " + player.getName() + "a" + " закончились попытки");
+        if (player.getAttempt() == 10) {
+            System.out.println("У " + player.getName() + "a" + " закончились попытки");
+        }
     }
 }
